@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi
+package ClasesApi
 
 data class WeaponsResponse(
     val status: Int,

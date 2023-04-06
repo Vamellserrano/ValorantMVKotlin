@@ -1,5 +1,8 @@
 package com.example.valorantpruebaapi
 
+import ClasesApi.AgentsResponse
+import ClasesApi.ValorantService
+import ClasesApi.WeaponsResponse
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("MANIII","PEPEEEEEE")
 
         val valorantService = ValorantService.create()
+
+        //WEAPONS
         valorantService.getWeapons().enqueue(object : Callback<WeaponsResponse> {
             override fun onResponse(
                 call: Call<WeaponsResponse>,
@@ -37,5 +41,33 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainActivity", t.message, t)
             }
         })
+
+        //AGENTS
+        valorantService.getAgents().enqueue(object : Callback<AgentsResponse> {
+            override fun onResponse(
+                call: Call<AgentsResponse>,
+                response: Response<AgentsResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val AgentsResponse = response.body()
+                    AgentsResponse?.data?.forEach { agent ->
+                        Log.d("MANIII", "Agent: ${agent.displayName}")
+                        Log.d("MANIII", "Role: ${agent.role.displayName}")
+                        for (x in agent.abilities){
+                            Log.d("MANIII", "${x.slot} \n${x.displayName} - ${x.description}")}
+                    }
+                    // y así sucesivamente
+                    Log.d("MANIII", AgentsResponse.toString())
+                } else {
+                    Log.e("MANIII", response.message())
+                }
+            }
+
+            override fun onFailure(call: Call<AgentsResponse>, t: Throwable) {
+                Log.e("MainActivity", t.message, t)
+            }
+        })
+
+        //MAPS
     }
 }
