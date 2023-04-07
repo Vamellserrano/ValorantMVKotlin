@@ -26,7 +26,11 @@ data class Agent(
     val isBaseContent: Boolean,
     val role: Role,
     val abilities: List<Ability>,
-)
+) {
+    override fun toString(): String {
+        return "Agent(uuid='$uuid', displayName='$displayName')"
+    }
+}
 
 data class Role(
     val uuid: String,
