@@ -1,5 +1,8 @@
 package ClasesApi
 
+//Class "AgentsResponse" which is linked directly to ValorantService interface. This only contains
+//the attributes of the classes and direct subclasses.
+
 data class AgentsResponse (
     val status: Int,
     val data: List<Agent>
