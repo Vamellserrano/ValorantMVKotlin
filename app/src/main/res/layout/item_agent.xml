@@ -11,21 +11,11 @@
         android:id="@+id/imageViewAgent"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:background="@drawable/border_white"
+        android:contentDescription="agentImage"
+        android:padding="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="75dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:text="Ouh Meeen"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewAgent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewAgent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

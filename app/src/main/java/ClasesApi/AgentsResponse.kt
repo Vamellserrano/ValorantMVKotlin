@@ -1,10 +1,12 @@
 package ClasesApi
 
+import android.os.Parcelable
+
 data class AgentsResponse (
     val status: Int,
     val data: List<Agent>
     )
-
+@kotlinx.parcelize.Parcelize
 data class Agent(
     val uuid: String,
     val displayName: String,
@@ -26,24 +28,24 @@ data class Agent(
     val isBaseContent: Boolean,
     val role: Role,
     val abilities: List<Ability>,
-) {
+): Parcelable {
     override fun toString(): String {
         return "Agent(uuid='$uuid', displayName='$displayName')"
     }
 }
-
+@kotlinx.parcelize.Parcelize
 data class Role(
     val uuid: String,
     val displayName: String,
     val description: String,
     val displayIcon: String,
     val assetPath: String,
-)
-
+) : Parcelable
+@kotlinx.parcelize.Parcelize
 data class Ability(
     val slot: String,
     val displayName: String,
     val description: String,
-    val displayIcon: String,
-)
+    var displayIcon: String,
+) : Parcelable
 

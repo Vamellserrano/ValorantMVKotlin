@@ -2,7 +2,6 @@ package com.example.valorantpruebaapi.adapter
 
 import ClasesApi.Agent
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.valorantpruebaapi.databinding.ItemAgentBinding
@@ -16,7 +15,6 @@ class AgentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //Utilizamos libreria externa para bindear un http a imageView
         Glide.with(binding.imageViewAgent.context).load(agentModel.displayIcon)
             .into(binding.imageViewAgent)
-        binding.textViewName.text = agentModel.displayName
 
         itemView.setOnClickListener {
             onClickListener(agentModel)

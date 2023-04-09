@@ -7,7 +7,7 @@ import retrofit2.http.GET
 interface ValorantService {
     @GET("v1/weapons")
     fun getWeapons(): Call<WeaponsResponse>
-    @GET("v1/agents?is_playable=true")
+    @GET("v1/agents?isPlayableCharacter=true")
     fun getAgents(): Call<AgentsResponse>
 
     companion object {

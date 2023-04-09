@@ -1,17 +1,11 @@
 package com.example.valorantpruebaapi
 
-import ClasesApi.Agent
-import ClasesApi.AgentsResponse
-import ClasesApi.Role
-import ClasesApi.ValorantService
+import ClasesApi.*
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.valorantpruebaapi.adapter.AgentAdapter
 import com.example.valorantpruebaapi.databinding.ActivityAgentsBinding
 import retrofit2.Call
@@ -26,7 +20,6 @@ class ActivityAgents : AppCompatActivity() {
         binding = ActivityAgentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         supportActionBar?.title = "AGENTES"
 
         val valorantService = ValorantService.create()
@@ -37,6 +30,8 @@ class ActivityAgents : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     val agentsResponse = response.body()
+                    //Con la funcion MAP lo transformo a una lista. Para evitar errores,
+                    //añado el ?: por si devuelve un null que no sea null ya que crashea la app
                     agents = agentsResponse?.data?.map { agent ->
                         Agent(
                             uuid = agent.uuid,
@@ -61,9 +56,7 @@ class ActivityAgents : AppCompatActivity() {
                             abilities = agent.abilities
                         )
                     } ?: emptyList()
-                    for (agent in agents) {
-                        Log.d("MANIII", agent.toString())
-                    }
+                    //Activamos la vista de nuestro recyclerview
                     initRecyclerView()
                 } else {
                     Log.e("MANIII", response.message())
@@ -80,16 +73,26 @@ class ActivityAgents : AppCompatActivity() {
     fun initRecyclerView() {
         //Funcion para establecer el recycle view, tanto el layout como los items
         val manager = GridLayoutManager(this, 3)
-        val decoration = DividerItemDecoration(this, manager.orientation)
 
         binding.recyclerViewAgents.layoutManager = manager
         binding.recyclerViewAgents.adapter =
-            AgentAdapter(agents, { agent -> onItemSelected(agent) })
+            AgentAdapter(agents) { agent -> onItemSelected(agent) }
 
-        binding.recyclerViewAgents.addItemDecoration(decoration)
+        //Decoracion - Separacion de rayas.
+        //val decoration = DividerItemDecoration(this, manager.orientation)
+        //binding.recyclerViewAgents.addItemDecoration(decoration)
     }
 
     fun onItemSelected(agent: Agent) {
-        Toast.makeText(this, agent.displayName, Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, agent.displayName, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, ActivityAgentUnit::class.java)
+
+        //Problema a solucionar, pasiva sin displayIcon
+        if (agent.abilities.size == 5 && agent.abilities[4].displayIcon == null) {
+            agent.abilities[4].displayIcon = "noPasive"
+        }
+        intent.putExtra("AGENT", agent)
+        startActivity(intent)
+
     }
 }
