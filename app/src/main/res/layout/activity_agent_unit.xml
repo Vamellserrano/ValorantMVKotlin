@@ -66,7 +66,7 @@
         android:gravity="center"
         android:text="Pasive"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageViewPasive"
         app:layout_constraintHorizontal_bias="0.753"
@@ -89,13 +89,13 @@
         android:id="@+id/ImageViewAbility1"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_white"
         android:contentDescription="firstAbility"
         android:padding="4dp"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toStartOf="@+id/ImageViewAbility2"
+        app:layout_constraintStart_toStartOf="@+id/ScrollViewAbilitiesDescription"
         app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -103,10 +103,12 @@
         android:id="@+id/ImageViewAbility2"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_white"
         android:contentDescription="secondAbility"
         android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toStartOf="@+id/ImageViewAbility3"
         app:layout_constraintStart_toEndOf="@+id/ImageViewAbility1"
         app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -115,11 +117,13 @@
         android:id="@+id/ImageViewAbility3"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_white"
         android:contentDescription="thirdAbility"
         android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
         app:layout_constraintEnd_toStartOf="@+id/ImageViewAbility4"
+        app:layout_constraintStart_toEndOf="@+id/ImageViewAbility2"
         app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -127,12 +131,13 @@
         android:id="@+id/ImageViewAbility4"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_white"
         android:contentDescription="fourAbility"
         android:padding="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toEndOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintStart_toEndOf="@+id/ImageViewAbility3"
         app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -147,6 +152,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/pasive_white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewNameAgent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
