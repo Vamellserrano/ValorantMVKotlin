@@ -60,7 +60,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonAgents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -69,7 +69,7 @@
             android:textColor="@color/black"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonMaps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MAPS"
@@ -77,7 +77,7 @@
             android:textColor="@color/black"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonWeapons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WEAPONS"
@@ -85,14 +85,13 @@
             android:textColor="@color/black"/>
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/buttonLineups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LINEUPS"
+            android:drawableEnd="@drawable/baseline_star_24"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"/>
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/box">
+
     </FrameLayout>
 
     <LinearLayout
@@ -29,11 +30,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="@string/welcome_to_valori"
+            android:text="INSERT YOUR DATA"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:fontFamily="@font/valorant_font"/>
+            android:textSize="18dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="20dp"
@@ -71,61 +71,35 @@
                 android:backgroundTint="#9FFFFFFF"
                 android:textColor="@color/black"
                 android:drawableStart="@drawable/baseline_person_outline_24"
-                android:hint="   USER" />
+                android:hint="   MAIL" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="350dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_signin"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="5dp"
-                android:backgroundTint="@color/white"
-                android:text="sign in"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/button_signingoogle"
-                android:layout_width="145dp"
-                android:layout_height="60dp"
-                android:backgroundTint="@color/white"
-                android:drawableRight="@drawable/google_g_2015"
-                android:text="sign in with"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
         <Button
-            android:id="@+id/button_continue"
-            android:layout_width="250dp"
+            android:id="@+id/button_signup"
+            android:layout_marginTop="20dp"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="sign up"
             android:backgroundTint="@color/white"
-            android:text="continue without login"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/button_signup"
-            android:layout_width="250dp"
+            android:id="@+id/button_signupgoogle"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="#00FFFFFF"
-            android:text="¿need to sign up?"
-            android:textColor="@color/white" />
+            android:text="sign up with"
+            android:drawableEnd="@drawable/google_g_2015"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="220dp"
             android:layout_marginLeft="160dp"
             app:srcCompat="@drawable/valorant_logo"
             android:contentDescription="Logo del valorant"/>
