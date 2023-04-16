@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityAgentUnit">
+
+    <ImageView
+        android:id="@+id/imageViewFondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Fondo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/box_black" />
+
+    <ImageView
+        android:id="@+id/imageViewAgentPortrait"
+        android:layout_width="200dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="50dp"
+        android:adjustViewBounds="false"
+        android:contentDescription="agentPortrait"
+        android:scaleType="fitCenter"
+        android:scaleX="2.5"
+        android:scaleY="3"
+        android:src="@drawable/gekko_example"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:id="@+id/textViewNameAgent"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="NameAgent"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewRolAgent"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Rol"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameAgent" />
+
+    <TextView
+        android:id="@+id/textViewPasive"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-3dp"
+        android:gravity="center"
+        android:text="Pasive"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPasive"
+        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPasive"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPasive" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait"
+        app:layout_constraintTop_toBottomOf="@+id/ScrollViewAbilitiesDescription" />
+
+    <ImageView
+        android:id="@+id/ImageViewAbility1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_white"
+        android:contentDescription="firstAbility"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toStartOf="@+id/ImageViewAbility2"
+        app:layout_constraintStart_toStartOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/ImageViewAbility2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_white"
+        android:contentDescription="secondAbility"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toStartOf="@+id/ImageViewAbility3"
+        app:layout_constraintStart_toEndOf="@+id/ImageViewAbility1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/ImageViewAbility3"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_white"
+        android:contentDescription="thirdAbility"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toStartOf="@+id/ImageViewAbility4"
+        app:layout_constraintStart_toEndOf="@+id/ImageViewAbility2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/ImageViewAbility4"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_white"
+        android:contentDescription="fourAbility"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintEnd_toEndOf="@+id/ScrollViewAbilitiesDescription"
+        app:layout_constraintStart_toEndOf="@+id/ImageViewAbility3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageViewPasive"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_white"
+        android:contentDescription="pasive"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pasive_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewNameAgent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/ScrollViewAbilitiesDescription"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/border_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRolAgent">
+
+
+        <TextView
+            android:id="@+id/textViewAbilitiesDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="AbilitiesDescription"
+            android:textColor="@color/white" />
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/ScrollViewDescriptionAgent"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/border_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription">
+
+        <TextView
+            android:id="@+id/textViewDescriptionAgent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="DescriptionAgent"
+            android:textColor="@color/white" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonContract"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="CONTRATO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAgentPortrait" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

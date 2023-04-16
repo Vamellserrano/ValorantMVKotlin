@@ -27,7 +27,8 @@
             android:rotationX="25"
             android:text="VALORI"
             android:textColor="#2D000000"
-            android:textSize="100dp" />
+            android:textSize="100sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -35,7 +36,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="495dp"
             android:layout_marginLeft="160dp"
-            android:contentDescription="Logo del valorant"
+            android:contentDescription="@string/logo_del_valorant_mainscreen"
             app:srcCompat="@drawable/valorant_logo" />
 
     </FrameLayout>
@@ -48,50 +49,51 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
 
         <TextView
             android:id="@+id/tvMainScreen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="¿WHAT ARE YOU LOOKING FOR?"
-            android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/white" />
+            android:text="@string/what_are_you_looking_for_mainscreen"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/buttonAgents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="AGENTS"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"/>
+            android:text="@string/agents_mainscreen"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonMaps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MAPS"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"/>
+            android:text="@string/maps_mainscreen"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonWeapons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="WEAPONS"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"/>
+            android:text="@string/weapons_mainscreen"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonLineups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LINEUPS"
-            android:drawableEnd="@drawable/baseline_star_24"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"/>
+            android:drawableEnd="@drawable/baseline_star_24"
+            android:text="@string/lineups_mainscreen"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

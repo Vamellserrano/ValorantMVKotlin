@@ -9,13 +9,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val valorantService = ValorantService.create()
 
@@ -93,6 +94,63 @@ class MainActivity : AppCompatActivity() {
                 Log.e("MainActivity", t.message, t)
             }
         })
+        supportActionBar?.title = "Pantalla Inicial"
+//
+//        val valorantService = ValorantService.create()
+//
+//        //WEAPONS
+//        valorantService.getWeapons().enqueue(object : Callback<WeaponsResponse> {
+//            override fun onResponse(
+//                call: Call<WeaponsResponse>,
+//                response: Response<WeaponsResponse>
+//            ) {
+//                if (response.isSuccessful) {
+//                    val weaponsResponse = response.body()
+//                    weaponsResponse?.data?.forEach { weapon ->
+//                        Log.d("MANIII", "Weapon: ${weapon.displayName}")
+//                        Log.d("MANIII", "Category: ${weapon.category}")
+//                        Log.d("MANIII", "Default Skin UUID: ${weapon.defaultSkinUuid}")
+//                    }
+//                    // y así sucesivamente
+//                    Log.d("MANIII", weaponsResponse.toString())
+//                } else {
+//                    Log.e("MANIII", response.message())
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<WeaponsResponse>, t: Throwable) {
+//                Log.e("MainActivity", t.message, t)
+//            }
+//        })
+//
+//        //AGENTS
+//        valorantService.getAgents().enqueue(object : Callback<AgentsResponse> {
+//            override fun onResponse(
+//                call: Call<AgentsResponse>,
+//                response: Response<AgentsResponse>
+//            ) {
+//                if (response.isSuccessful) {
+//                    val AgentsResponse = response.body()
+//                    AgentsResponse?.data?.forEach { agent ->
+//                        if (agent.role != null) {
+//                            Log.d("MANIII", "Agent: ${agent.displayName}")
+//                            Log.d("MANIII", "Role: ${agent.role.displayName}")
+//                            for (x in agent.abilities) {
+//                                Log.d("MANIII", "${x.slot} \n${x.displayName} - ${x.description}")
+//                            }
+//                        }
+//                    }
+//                    // y así sucesivamente
+//                    Log.d("MANIII", AgentsResponse.toString())
+//                } else {
+//                    Log.e("MANIII", response.message())
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<AgentsResponse>, t: Throwable) {
+//                Log.e("MainActivity", t.message, t)
+//            }
+//        })
 
         //MAPS
         valorantService.getMaps().enqueue(object : Callback<MapsResponse> {

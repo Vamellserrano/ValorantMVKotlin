@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">ValorantPruebaApi</string>
     <string name="welcome_to_valori">WELCOME TO VALORI</string>
+    <string name="password">PASSWORD</string>
+    <string name="user">USER</string>
+    <string name="sign_in">sign in</string>
+    <string name="sign_in_with">sign in with</string>
+    <string name="continue_without_login">continue without login</string>
+    <string name="need_to_sign_up">¿need to sign up?</string>
+    <string name="logo_del_valorant">Logo del valorant</string>
+    <string name="insert_your_data">INSERT YOUR DATA</string>
+    <string name="password_register">PASSWORD</string>
+    <string name="mail_register">MAIL</string>
+    <string name="sign_up_register">sign up</string>
+    <string name="sign_up_with_register">sign up with</string>
+    <string name="logo_del_valorant_register">Logo del valorant</string>
+    <string name="logo_del_valorant_mainscreen">Logo del valorant</string>
+    <string name="what_are_you_looking_for_mainscreen">¿WHAT ARE YOU LOOKING FOR?</string>
+    <string name="agents_mainscreen">AGENTS</string>
+    <string name="maps_mainscreen">MAPS</string>
+    <string name="weapons_mainscreen">WEAPONS</string>
+    <string name="lineups_mainscreen">LINEUPS</string>
+    <string name="agentes_mainactivity">Agentes</string>
 </resources>
