@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "676781829715",
+    "project_id": "valori-vm1",
+    "storage_bucket": "valori-vm1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676781829715:android:4cadfd6e249dbe39e160a6",
+        "android_client_info": {
+          "package_name": "com.example.valorantpruebaapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676781829715-2k858dmt20ca4f30bqfnnijv795o5l90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrKT7NbgxWhUWHvaVUdv8jdDARgLalwMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676781829715-2k858dmt20ca4f30bqfnnijv795o5l90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676781829715:android:c98348d524b44038e160a6",
+        "android_client_info": {
+          "package_name": "com.example.valorantpruebaapi1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676781829715-h7kjo0ufomjeht80bs0aoqsdnqulup1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.valorantpruebaapi1",
+            "certificate_hash": "08d1d9c76bb4172235ce9671e27882ff33a5031a"
+          }
+        },
+        {
+          "client_id": "676781829715-2k858dmt20ca4f30bqfnnijv795o5l90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrKT7NbgxWhUWHvaVUdv8jdDARgLalwMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676781829715-2k858dmt20ca4f30bqfnnijv795o5l90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

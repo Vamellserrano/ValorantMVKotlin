@@ -1,7 +1,6 @@
 package com.example.valorantpruebaapi.adapter
 
 import ClasesApi.Agent
-import android.content.DialogInterface.OnClickListener
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

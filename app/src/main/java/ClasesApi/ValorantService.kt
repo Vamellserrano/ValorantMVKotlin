@@ -9,6 +9,10 @@ interface ValorantService {
     fun getWeapons(): Call<WeaponsResponse>
     @GET("v1/agents?isPlayableCharacter=true")
     fun getAgents(): Call<AgentsResponse>
+    @GET("v1/contracts")
+    fun getContracts(): Call<ContractsResponse>
+    @GET("v1/maps")
+    fun getMaps(): Call<MapsResponse>
 
     companion object {
         private const val BASE_URL = "https://valorant-api.com/"
