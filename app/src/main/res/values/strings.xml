@@ -21,4 +21,5 @@
     <string name="weapons_mainscreen">WEAPONS</string>
     <string name="lineups_mainscreen">LINEUPS</string>
     <string name="agentes_mainactivity">Agentes</string>
+    <string name="damage">DAMAGE</string>
 </resources>

@@ -19,6 +19,10 @@ class MainScreen : AppCompatActivity() {
             val intent = Intent(this@MainScreen,ActivityAgents::class.java)
             startActivity(intent)
             }
+        binding.buttonWeapons.setOnClickListener {
+            val intent = Intent(this@MainScreen,ActivityWeapons::class.java)
+            startActivity(intent)
+        }
 
         //The "lineups" option can be only accessed by logging into the application.
         binding.buttonLineups.setOnClickListener {
