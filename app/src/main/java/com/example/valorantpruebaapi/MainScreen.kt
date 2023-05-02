@@ -21,6 +21,10 @@ class MainScreen : AppCompatActivity() {
             val intent = Intent(this@MainScreen, ActivityAgents::class.java)
             startActivity(intent)
             }
+        binding.buttonWeapons.setOnClickListener {
+            val intent = Intent(this@MainScreen,ActivityWeapons::class.java)
+            startActivity(intent)
+        }
 
         binding.buttonMaps.setOnClickListener {
             val intent = Intent(this@MainScreen, ActivityMaps::class.java)
