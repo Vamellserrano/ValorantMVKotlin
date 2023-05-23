@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_valorant_login"
+    tools:context=".ActivityMapUnit">
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/box"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewMapPreview"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="Map icon preview" />
+
+        <TextView
+            android:id="@+id/textViewMapName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="140dp"
+            android:gravity="center"
+            android:letterSpacing="0.5"
+            android:text="@string/mapname"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageViewMapDisposition"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="Map view Disposition" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
