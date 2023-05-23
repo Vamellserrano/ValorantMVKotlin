@@ -1,5 +1,7 @@
 package ClasesApi
 
+import android.os.Parcelable
+
 //Class "MapsResponse" which is linked directly to ValorantService interface. This only contains
 //the attributes of the classes and direct subclasses.
 
@@ -7,7 +9,7 @@ data class MapsResponse(
     val status: Int,
     val data: List<Map>
 )
-
+@kotlinx.parcelize.Parcelize
 data class Map(
     val uuid: String,
     val displayName: String,
@@ -21,16 +23,4 @@ data class Map(
     val yMultiplier: Float,
     val xScalarToAdd: Float,
     val yScalarToAdd: Float,
-    val callouts: List<Callout>
-)
-
-data class Callout(
-    val regionName: String,
-    val superRegionName: String,
-    val location: Location
-)
-
-data class Location(
-    val x: Float,
-    val y: Float
-)
+) : Parcelable

@@ -20,6 +20,11 @@ class MainScreen : AppCompatActivity() {
             startActivity(intent)
             }
 
+        binding.buttonMaps.setOnClickListener {
+            val intent = Intent(this@MainScreen,ActivityMaps::class.java)
+            startActivity(intent)
+        }
+
         //The "lineups" option can be only accessed by logging into the application.
         binding.buttonLineups.setOnClickListener {
             if (FirebaseAuth.getInstance().getCurrentUser() != null){
