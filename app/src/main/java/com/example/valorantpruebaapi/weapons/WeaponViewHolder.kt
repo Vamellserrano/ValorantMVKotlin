@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi.adapter
+package com.example.valorantpruebaapi.weapons
 
 import ClasesApi.Weapon
 import android.view.View

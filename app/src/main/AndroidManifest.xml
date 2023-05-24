@@ -20,7 +20,7 @@
             android:name=".maps.ActivityMaps"
             android:exported="false" />
         <activity
-            android:name=".ActivityWeapons"
+            android:name=".weapons.ActivityWeapons"
             android:exported="false" />
         <activity
             android:name=".RegisterScreen"

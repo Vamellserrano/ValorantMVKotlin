@@ -1,7 +1,6 @@
-package com.example.valorantpruebaapi
+package com.example.valorantpruebaapi.weapons
 
 import ClasesApi.*
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +8,7 @@ import android.view.Gravity
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.valorantpruebaapi.adapter.WeaponAdapter
+import com.example.valorantpruebaapi.R
 import com.example.valorantpruebaapi.databinding.ActivityWeaponsBinding
 import retrofit2.Call
 import retrofit2.Callback
