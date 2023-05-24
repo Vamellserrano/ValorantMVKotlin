@@ -22,6 +22,14 @@
     <string name="lineups_mainscreen">LINEUPS</string>
     <string name="agentes_mainactivity">Agentes</string>
     <string name="damage">DAMAGE</string>
+    <string name="weapon_name">WEAPON NAME</string>
+    <string name="category">CATEGORY</string>
+    <string name="cost">Cost:</string>
+    <string name="penetration">Penetration:</string>
+    <string name="head">Head</string>
+    <string name="body">Body</string>
+    <string name="legs">Legs</string>
+    <string name="close">Close</string>
     <string name="textviewmap">TextViewMap</string>
     <string name="mapname">MapName</string>
     <string name="map_icon_preview">Map icon preview</string>

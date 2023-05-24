@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
-    android:layout_height="280dp"
+    android:layout_height="180dp"
     android:background="@drawable/box_50_alpha"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/teal_200"
+            android:background="@color/black"
             android:orientation="horizontal">
 
             <TextView
@@ -23,9 +23,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
                 android:paddingLeft="10dp"
-                android:text="WEAPON NAME"
+                android:text="@string/weapon_name"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -33,10 +33,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
                 android:paddingRight="20dp"
-                android:text="CATEGORY"
-                android:textAlignment="textEnd" />
+                android:text="@string/category"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/teal_200"
+            android:background="@color/redValorant"
             android:orientation="horizontal">
 
             <TextView
@@ -52,7 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cost: " />
+                android:text="@string/cost"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textViewPenetration"
@@ -60,8 +61,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingRight="20dp"
-                android:text="Penetration: "
-                android:textAlignment="textEnd" />
+                android:text="@string/penetration"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white" />
         </LinearLayout>
 
     </LinearLayout>
@@ -69,14 +71,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/teal_200"
+        android:layout_weight="0.6"
+        android:background="@color/redValorant"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="2.15"
             android:orientation="horizontal">
 
             <TextView
@@ -84,9 +86,10 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
+                android:background="@color/black"
                 android:paddingLeft="10dp"
                 android:text="@string/damage"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -94,15 +97,16 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
+                android:background="@color/black"
                 android:text="0-15m             15-30m             30-50m"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="2.15"
             android:orientation="horizontal">
 
             <TextView
@@ -110,9 +114,10 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
+                android:background="@color/black"
                 android:paddingLeft="10dp"
-                android:text="Head"
+                android:text="@string/head"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -120,14 +125,15 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="156"
-                android:textAlignment="center" />
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="2.15"
             android:orientation="horizontal">
 
             <TextView
@@ -135,9 +141,10 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
+                android:background="@color/black"
                 android:paddingLeft="10dp"
-                android:text="Body"
+                android:text="@string/body"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -145,14 +152,15 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="39"
-                android:textAlignment="center" />
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="2.3"
             android:orientation="horizontal">
 
             <TextView
@@ -160,9 +168,10 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/teal_700"
+                android:background="@color/black"
                 android:paddingLeft="10dp"
-                android:text="Legs"
+                android:text="@string/legs"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -170,8 +179,9 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="33"
-                android:textAlignment="center" />
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -179,18 +189,19 @@
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="2"
+            android:layout_weight="1.9"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonShowMore"
+                android:id="@+id/buttonClose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Show More" />
+                android:text="@string/close"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>
