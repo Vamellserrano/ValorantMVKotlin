@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.example.valorantpruebaapi.weapons.ActivityWeapons
 import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.databinding.ActivityMainScreenBinding
 import com.example.valorantpruebaapi.maps.ActivityMaps
@@ -21,6 +22,10 @@ class MainScreen : AppCompatActivity() {
             val intent = Intent(this@MainScreen, ActivityAgents::class.java)
             startActivity(intent)
             }
+        binding.buttonWeapons.setOnClickListener {
+            val intent = Intent(this@MainScreen, ActivityWeapons::class.java)
+            startActivity(intent)
+        }
 
         binding.buttonMaps.setOnClickListener {
             val intent = Intent(this@MainScreen, ActivityMaps::class.java)

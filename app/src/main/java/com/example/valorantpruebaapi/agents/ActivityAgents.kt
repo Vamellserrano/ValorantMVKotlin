@@ -19,7 +19,7 @@ class ActivityAgents : AppCompatActivity() {
         binding = ActivityAgentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "AGENTES"
+        supportActionBar?.title = "AGENTS"
 
         val valorantService = ValorantService.create()
 
