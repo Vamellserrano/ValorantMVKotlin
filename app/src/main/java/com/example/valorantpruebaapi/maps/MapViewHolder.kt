@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi.mapadapter
+package com.example.valorantpruebaapi.maps
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

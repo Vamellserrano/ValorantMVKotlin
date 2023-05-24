@@ -23,4 +23,6 @@
     <string name="agentes_mainactivity">Agentes</string>
     <string name="textviewmap">TextViewMap</string>
     <string name="mapname">MapName</string>
+    <string name="map_icon_preview">Map icon preview</string>
+    <string name="map_view_disposition">Map view Disposition</string>
 </resources>

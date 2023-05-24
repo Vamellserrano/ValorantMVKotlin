@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi
+package com.example.valorantpruebaapi.agents
 
 import ClasesApi.Agent
 import android.graphics.text.LineBreaker
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Layout
 import androidx.core.view.isInvisible
 import com.bumptech.glide.Glide
+import com.example.valorantpruebaapi.R
 import com.example.valorantpruebaapi.databinding.ActivityAgentUnitBinding
 
 class ActivityAgentUnit : AppCompatActivity() {
