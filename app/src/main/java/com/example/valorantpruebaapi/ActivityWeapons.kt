@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
-import android.view.View
-import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -84,6 +82,9 @@ class ActivityWeapons : AppCompatActivity() {
             "EEquippableCategory::Heavy", "EEquippableCategory::Melee")
         weapons = weapons.sortedWith(compareBy({ order.indexOf(it.category) }, { it.shopData?.cost }))
 
+        //Eliminamos el cuchillo de la ecuacion <3
+        weapons = weapons.subList(0,weapons.size-1)
+
         binding.recyclerViewWeapons.layoutManager = manager
         binding.recyclerViewWeapons.adapter =
             WeaponAdapter(weapons) { weapon -> onItemSelected(weapon) }
@@ -122,26 +123,15 @@ class ActivityWeapons : AppCompatActivity() {
             popupView.findViewById<TextView>(R.id.textViewDamageLegs).text = legs
 
 
-            popupWindow = PopupWindow(popupView, 800,  1000)
+            popupWindow = PopupWindow(popupView, 800,  600)
+
+            //INTENTAR REDONDEAR EL POPUPWINDOW
+            //popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(popupView.context, R.drawable.box_50_alpha))
+
             //val popupWindow = PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
 
             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
 
-
         }
-
-
-
-        //AQUI SALDRA EL POP UP=======================================
-        val intent = Intent(this, ActivityAgentUnit::class.java)
-
-        //Problema a solucionar, pasiva sin displayIcon
-        /*if (agent.abilities.size == 5 && agent.abilities[4].displayIcon == null) {
-            agent.abilities[4].displayIcon = "noPasive"
-        }
-        intent.putExtra("AGENT", agent)
-        startActivity(intent)*/
-
-
     }
 }
