@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.databinding.ActivityMainScreenBinding
+import com.example.valorantpruebaapi.maps.ActivityMaps
 import com.google.firebase.auth.FirebaseAuth
 
 class MainScreen : AppCompatActivity() {
@@ -16,12 +18,12 @@ class MainScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonAgents.setOnClickListener {
-            val intent = Intent(this@MainScreen,ActivityAgents::class.java)
+            val intent = Intent(this@MainScreen, ActivityAgents::class.java)
             startActivity(intent)
             }
 
         binding.buttonMaps.setOnClickListener {
-            val intent = Intent(this@MainScreen,ActivityMaps::class.java)
+            val intent = Intent(this@MainScreen, ActivityMaps::class.java)
             startActivity(intent)
         }
 

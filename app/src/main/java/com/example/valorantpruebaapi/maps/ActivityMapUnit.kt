@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi
+package com.example.valorantpruebaapi.maps
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

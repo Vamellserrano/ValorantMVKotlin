@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi
+package com.example.valorantpruebaapi.maps
 
 import ClasesApi.*
 import ClasesApi.Map
@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.valorantpruebaapi.databinding.ActivityMapsBinding
-import com.example.valorantpruebaapi.mapadapter.MapAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi.mapadapter
+package com.example.valorantpruebaapi.maps
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

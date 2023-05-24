@@ -1,4 +1,4 @@
-package com.example.valorantpruebaapi.adapter
+package com.example.valorantpruebaapi.agents
 
 import ClasesApi.Agent
 import android.view.View

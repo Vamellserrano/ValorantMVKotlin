@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_valorant_login"
-    tools:context=".ActivityMapUnit">
+    tools:context=".maps.ActivityMapUnit">
 
     <FrameLayout
         android:id="@+id/frameLayout3"
@@ -23,7 +23,7 @@
             android:layout_height="132dp"
             android:scaleType="fitXY"
             tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="Map icon preview" />
+            android:contentDescription="@string/map_icon_preview" />
 
         <TextView
             android:id="@+id/textViewMapName"
@@ -44,7 +44,7 @@
             android:layout_marginTop="60dp"
             android:scaleType="fitXY"
             tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="Map view Disposition" />
+            android:contentDescription="@string/map_view_disposition" />
 
     </FrameLayout>
 
