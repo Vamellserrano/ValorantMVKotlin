@@ -34,4 +34,8 @@
     <string name="mapname">MapName</string>
     <string name="map_icon_preview">Map icon preview</string>
     <string name="map_view_disposition">Map view Disposition</string>
+    <string name="mapimagelineup">mapImageLineup</string>
+    <string name="choose_your_agent">Choose your agent:</string>
+    <string name="choose_your_map">Choose your map:</string>
+    <string name="lineup">LINEUP</string>
 </resources>
