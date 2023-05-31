@@ -33,8 +33,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAgentsLineups"
-            android:layout_width="match_parent"
-            android:layout_height="130dp" />
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:background="@drawable/box_recycler"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -46,8 +48,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMapsLineups"
-            android:layout_width="match_parent"
-            android:layout_height="130dp" />
+            android:layout_width="350dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:background="@drawable/box_recycler"/>
 
         <FrameLayout
             android:layout_width="match_parent"

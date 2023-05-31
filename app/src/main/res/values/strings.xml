@@ -38,4 +38,12 @@
     <string name="choose_your_agent">Choose your agent:</string>
     <string name="choose_your_map">Choose your map:</string>
     <string name="lineup">LINEUP</string>
+    <string name="opendrawer">Open</string>
+    <string name="closedrawer">Close</string>
+    <string name="agents_nav">Agents</string>
+    <string name="maps_nav">Maps</string>
+    <string name="weapons_nav">Weapons</string>
+    <string name="lineups_nav">Lineups</string>
+    <string name="logonavheader">logonavheader</string>
+    <string name="mapview_from_maplist_recyclerview">MapView from MapList RecyclerView</string>
 </resources>

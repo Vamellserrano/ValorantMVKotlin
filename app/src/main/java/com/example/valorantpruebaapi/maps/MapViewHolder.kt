@@ -1,5 +1,6 @@
 package com.example.valorantpruebaapi.maps
 
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,6 +16,12 @@ class MapViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 .into(binding.imageViewMap)
 
             binding.textViewMapName.text = mapModel.displayName
+
+            Log.i("holiwi", mapModel.displayIcon)
+            if (mapModel.displayIcon == ""){
+                binding.vistaitemMap.visibility = View.GONE
+                binding.vistaitemMap.layoutParams = RecyclerView.LayoutParams(0,0)
+            }
 
             itemView.setOnClickListener {
                 onClickListener(mapModel)
