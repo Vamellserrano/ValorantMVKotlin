@@ -115,7 +115,7 @@ class ActivityLineups : AppCompatActivity() {
     private fun showVideoLineup() {
         // Read from database
         val database = FirebaseDatabase.getInstance()
-        val agentsRef = database.getReference("Agentes")
+        val agentsRef = database.getReference("Agents")
 
         agentsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
