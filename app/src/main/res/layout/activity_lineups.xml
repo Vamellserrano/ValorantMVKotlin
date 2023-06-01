@@ -22,7 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/box">
 
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
@@ -58,8 +57,8 @@
             android:layout_height="400dp"
             android:background="#54000000">
 
-            <VideoView
-                android:id="@+id/videoViewLineups"
+            <WebView
+                android:id="@+id/webViewLineups"
                 android:layout_width="380dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"/>

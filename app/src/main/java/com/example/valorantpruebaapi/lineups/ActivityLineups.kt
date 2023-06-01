@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.valorantpruebaapi.agents.AgentAdapter
 import com.example.valorantpruebaapi.databinding.ActivityLineupsBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,15 +20,19 @@ import retrofit2.Response
 private var agents: List<Agent> = emptyList()
 private var maps: List<Map> = emptyList()
 private lateinit var binding: ActivityLineupsBinding
-
+private var displayNameAgent: String = ""
+private var displayNameMap: String = ""
 class ActivityLineups : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLineupsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         supportActionBar?.title = "LINEUPS"
 
+        //Para el método showVideos.
+        binding.webViewLineups.settings.javaScriptEnabled = true
+
+        //Para el recyclerView de Agents
         val valorantService = ValorantService.create()
 
         valorantService.getAgents().enqueue(object : Callback<AgentsResponse> {
@@ -68,14 +76,15 @@ class ActivityLineups : AppCompatActivity() {
             }
         })
 
+        //Para el recyclerView de Maps
         valorantService.getMaps().enqueue(object : Callback<MapsResponse> {
             override fun onResponse(
-                call: Call<MapsResponse>, response: Response <MapsResponse>
+                call: Call<MapsResponse>, response: Response<MapsResponse>
             ) {
                 if (response.isSuccessful) {
                     val mapsResponse = response.body()
-                    maps = mapsResponse?.data?.map {map ->
-                        Map (
+                    maps = mapsResponse?.data?.map { map ->
+                        Map(
                             uuid = map.uuid,
                             displayName = map.displayName,
                             coordinates = map.coordinates,
@@ -95,10 +104,43 @@ class ActivityLineups : AppCompatActivity() {
                     Log.e("MANIII", response.message())
                 }
             }
+
             override fun onFailure(call: Call<MapsResponse>, t: Throwable) {
                 Log.e("MainActivity", t.message, t)
             }
 
+        })
+    }
+
+    private fun showVideoLineup() {
+        // Read from database
+        val database = FirebaseDatabase.getInstance()
+        val agentsRef = database.getReference("Agentes")
+
+        agentsRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (agentSnapshot in snapshot.children) {
+                    if (agentSnapshot.key == displayNameAgent) //display name del agente
+                    {
+                        val agentName = agentSnapshot.key
+                        val mapsSnapshot = agentSnapshot.child("Map")
+                        for (mapSnapshot in mapsSnapshot.children) {
+                            if (mapSnapshot.key == displayNameMap) //display name del mapa
+                            {
+                                val mapName = mapSnapshot.key
+                                val url = mapSnapshot.getValue(String::class.java)
+                                Log.d("LALALA", "Agente: $agentName, Mapa: $mapName, URL: $url")
+                                if (url != null) {
+                                    binding.webViewLineups.loadUrl(url)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("LALALA", "Failed to read value.", error.toException())
+            }
         })
     }
 
@@ -115,10 +157,13 @@ class ActivityLineups : AppCompatActivity() {
     }
 
     fun onItemSelected(agent: Agent) {
+        displayNameAgent = agent.displayName
+        showVideoLineup()
     }
 
     fun onItemSelected(map: Map) {
+        displayNameMap = map.displayName
+        showVideoLineup()
     }
-
 }
 
