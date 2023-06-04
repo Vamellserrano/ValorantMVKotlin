@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".lineups.ActivityLineups"
-    android:background="@drawable/fondo_valorant_login">
+    android:background="@drawable/fondo_valorant_login"
+    android:id="@+id/drawerLineups">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,59 +24,87 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/box">
 
-
-        <TextView
-            android:id="@+id/textView3"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarlineups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/frameLayout"
+            android:background="@color/purple_700"/>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="@string/choose_your_agent"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAgentsLineups"
-            android:layout_width="350dp"
+            android:layout_width="370dp"
             android:layout_height="130dp"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="center"
+            android:padding="10dp"
             android:background="@drawable/box_recycler"/>
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="@string/choose_your_map"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewMapsLineups"
-            android:layout_width="350dp"
+            android:padding="10dp"
+            android:layout_width="370dp"
             android:layout_height="130dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/box_recycler"/>
 
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="#54000000">
+            android:layout_width="370dp"
+            android:layout_height="360dp"
+            android:layout_gravity="center"
+            android:background="@drawable/box_recycler">
 
-            <VideoView
-                android:id="@+id/videoViewLineups"
-                android:layout_width="380dp"
-                android:layout_height="300dp"
-                android:layout_gravity="center"/>
+            <WebView
+                android:id="@+id/webViewLineups"
+                android:layout_width="340dp"
+                android:layout_height="260dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:id="@+id/textViewLineups"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:fontFamily="@font/valorant_font"
-                android:textColor="@color/white"
                 android:layout_marginStart="20sp"
-                android:layout_marginTop="15dp"
-                android:text="@string/lineup" />
+                android:layout_marginTop="10dp"
+                android:text="@string/lineup"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </FrameLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<com.google.android.material.navigation.NavigationView
+    android:id="@+id/nav_view_lineups"
+    android:layout_width="200dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="@+id/frameLayout"
+    app:layout_constraintTop_toTopOf="parent"
+    app:menu="@menu/navigation_menu"
+    app:headerLayout="@layout/navigation_header">
+</com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

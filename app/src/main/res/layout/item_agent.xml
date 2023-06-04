@@ -4,18 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp">
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="10dp">
 
-    <ImageView
-        android:id="@+id/imageViewAgent"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/border_white"
-        android:contentDescription="agentImage"
-        android:padding="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageViewAgent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/box_recyclerunit"
+            android:backgroundTint="#4AFFFFFF"
+            android:contentDescription="@string/agentimage"
+            android:scaleType="fitStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

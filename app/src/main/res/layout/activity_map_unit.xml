@@ -1,51 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_valorant_login"
+    android:id="@+id/drawermap"
     tools:context=".maps.ActivityMapUnit">
 
-    <FrameLayout
-        android:id="@+id/frameLayout3"
-        android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/linearLayoutMaps"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/box"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_700" />
+
+            <ImageView
+                android:id="@+id/imageViewMapPreview"
+                android:layout_width="match_parent"
+                android:layout_height="132dp"
+                android:contentDescription="@string/map_icon_preview"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/textViewMapName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:letterSpacing="0.2"
+                android:text="@string/mapname"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imageViewMapDisposition"
+                android:layout_width="360dp"
+                android:layout_height="380dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:contentDescription="@string/map_view_disposition"
+                android:scaleType="fitXY"
+                android:background="@drawable/box_recycler"/>
+        </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_map"
+        android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:background="@drawable/box"
+        android:layout_gravity="start"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/navigation_header">
+    </com.google.android.material.navigation.NavigationView>
 
-        <ImageView
-            android:id="@+id/imageViewMapPreview"
-            android:layout_width="match_parent"
-            android:layout_height="132dp"
-            android:scaleType="fitXY"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/map_icon_preview" />
-
-        <TextView
-            android:id="@+id/textViewMapName"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="140dp"
-            android:gravity="center"
-            android:letterSpacing="0.5"
-            android:text="@string/mapname"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/imageViewMapDisposition"
-            android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:scaleType="fitXY"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/map_view_disposition" />
-
-    </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
