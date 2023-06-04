@@ -2,12 +2,21 @@ package com.example.valorantpruebaapi.lineups
 
 import ClasesApi.*
 import ClasesApi.Map
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.valorantpruebaapi.R
+import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.agents.AgentAdapter
 import com.example.valorantpruebaapi.databinding.ActivityLineupsBinding
+import com.example.valorantpruebaapi.maps.ActivityMaps
+import com.example.valorantpruebaapi.weapons.ActivityWeapons
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -16,6 +25,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+private lateinit var drawerToggle: ActionBarDrawerToggle
+private lateinit var drawerLayout: DrawerLayout
+private lateinit var navigationView: NavigationView
 
 private var agents: List<Agent> = emptyList()
 private var maps: List<Map> = emptyList()
@@ -110,6 +122,60 @@ class ActivityLineups : AppCompatActivity() {
             }
 
         })
+
+
+        // -----------------------------------------------------------
+        // --------------------- NAVIGATION MENU ---------------------
+        // -----------------------------------------------------------
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbarlineups)
+        //Asignar la navigationView
+        navigationView = findViewById(R.id.nav_view_lineups)
+        //Asignar el drawer
+        drawerLayout = findViewById(R.id.drawerLineups)
+
+        // Inicializar ActionBarDrawerToggle y asociarlo al DrawerLayout y la Toolbar
+        drawerToggle = ActionBarDrawerToggle(
+            this, drawerLayout, binding.toolbarlineups, R.string.opendrawer, R.string.closedrawer
+        )
+        drawerLayout.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        navigationView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.agents_nav -> {
+                    val agentsIntent =
+                        Intent(this@ActivityLineups, ActivityAgents::class.java)
+                    startActivity(agentsIntent)
+                    true
+                }
+                R.id.maps_nav -> {
+                    val mapsIntent =
+                        Intent(this@ActivityLineups, ActivityMaps::class.java)
+                    startActivity(mapsIntent)
+                    true
+                }
+                R.id.weapons_nav -> {
+                    val weaponsIntent =
+                        Intent(this@ActivityLineups, ActivityWeapons::class.java)
+                    startActivity(weaponsIntent)
+                    true
+                }
+                R.id.lineups_nav -> {
+                    val lineupsIntent2 =
+                        Intent(this@ActivityLineups, ActivityLineups::class.java)
+                    startActivity(lineupsIntent2)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun showVideoLineup() {
