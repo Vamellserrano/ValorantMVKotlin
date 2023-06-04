@@ -46,4 +46,6 @@
     <string name="lineups_nav">Lineups</string>
     <string name="logonavheader">logonavheader</string>
     <string name="mapview_from_maplist_recyclerview">MapView from MapList RecyclerView</string>
+    <string name="agentimage">agentImage</string>
+    <string name="agentportrait2">agentPortrait2</string>
 </resources>
