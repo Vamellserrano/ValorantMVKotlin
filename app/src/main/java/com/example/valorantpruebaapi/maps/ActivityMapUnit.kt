@@ -31,7 +31,9 @@ class ActivityMapUnit : AppCompatActivity() {
 
         if (map != null) {
 
-            supportActionBar?.title = "MAP" + map.displayName
+            // Asignar la Toolbar
+            setSupportActionBar(binding.toolbarmap)
+            supportActionBar?.title = map.displayName
 
             Glide.with(binding.imageViewMapPreview.context).load(map.listViewIcon)
                 .into((binding.imageViewMapPreview))
@@ -45,8 +47,7 @@ class ActivityMapUnit : AppCompatActivity() {
     // -----------------------------------------------------------
     // --------------------- NAVIGATION MENU ---------------------
     // -----------------------------------------------------------
-    // Asignar la Toolbar
-    setSupportActionBar(binding.toolbarmap)
+
     //Asignar la navigationView
     navigationView = findViewById(R.id.nav_view_map)
     //Asignar el drawer

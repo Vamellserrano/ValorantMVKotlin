@@ -32,6 +32,10 @@ class ActivityAgents : AppCompatActivity() {
         binding = ActivityAgentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbaragents)
+        supportActionBar?.title = "AGENTS"
+
         val valorantService = ValorantService.create()
 
         valorantService.getAgents().enqueue(object : Callback<AgentsResponse> {
@@ -81,8 +85,7 @@ class ActivityAgents : AppCompatActivity() {
         // -----------------------------------------------------------
         // --------------------- NAVIGATION MENU ---------------------
         // -----------------------------------------------------------
-        // Asignar la Toolbar
-        setSupportActionBar(binding.toolbaragents)
+
         //Asignar la navigationView
         navigationView = findViewById(R.id.nav_view_agents)
         //Asignar el drawer

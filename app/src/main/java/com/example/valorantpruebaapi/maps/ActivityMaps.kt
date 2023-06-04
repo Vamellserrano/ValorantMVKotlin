@@ -34,7 +34,9 @@ class ActivityMaps : AppCompatActivity() {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "MAPAS"
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbarmaps)
+        supportActionBar?.title = "MAPS"
 
         val valorantService = ValorantService.create()
 
@@ -74,8 +76,7 @@ class ActivityMaps : AppCompatActivity() {
         // -----------------------------------------------------------
         // --------------------- NAVIGATION MENU ---------------------
         // -----------------------------------------------------------
-        // Asignar la Toolbar
-        setSupportActionBar(binding.toolbarmaps)
+
         //Asignar la navigationView
         navigationView = findViewById(R.id.nav_view_maps)
         //Asignar el drawer

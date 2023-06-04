@@ -37,6 +37,8 @@ class ActivityWeapons : AppCompatActivity() {
         binding = ActivityWeaponsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbarweapons)
         supportActionBar?.title = "WEAPONS"
         popupWindow = PopupWindow(layoutInflater.inflate(R.layout.popup_weapons, null), 800,  1000)
 
@@ -86,8 +88,7 @@ class ActivityWeapons : AppCompatActivity() {
         // -----------------------------------------------------------
         // --------------------- NAVIGATION MENU ---------------------
         // -----------------------------------------------------------
-        // Asignar la Toolbar
-        setSupportActionBar(binding.toolbarweapons)
+
         //Asignar la navigationView
         navigationView = findViewById(R.id.nav_view_weapons)
         //Asignar el drawer

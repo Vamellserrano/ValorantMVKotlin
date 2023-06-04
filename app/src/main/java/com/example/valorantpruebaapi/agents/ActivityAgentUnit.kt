@@ -34,9 +34,11 @@ class ActivityAgentUnit : AppCompatActivity() {
         val agent = intent.getParcelableExtra<Agent>("AGENT")
 
         if (agent != null) {
-            //Establecemos todos los atributos de la clase agente necesarios
+            // Asignar la Toolbar
+            setSupportActionBar(binding.toolbaragent)
             supportActionBar?.title = "AGENT " + agent.displayName
 
+            //Establecemos todos los atributos de la clase agente necesarios
             Glide.with(binding.imageViewAgentPortrait.context).load(agent.fullPortrait)
                 .into(binding.imageViewAgentPortrait)
             Glide.with(binding.imageViewAgentPortrait2.context).load(agent.fullPortrait)
@@ -108,8 +110,7 @@ class ActivityAgentUnit : AppCompatActivity() {
         // -----------------------------------------------------------
         // --------------------- NAVIGATION MENU ---------------------
         // -----------------------------------------------------------
-        // Asignar la Toolbar
-        setSupportActionBar(binding.toolbaragent)
+
         //Asignar la navigationView
         navigationView = findViewById(R.id.nav_view_agent)
         //Asignar el drawer

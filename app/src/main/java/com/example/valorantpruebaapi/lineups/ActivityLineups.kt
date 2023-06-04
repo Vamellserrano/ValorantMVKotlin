@@ -39,6 +39,8 @@ class ActivityLineups : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLineupsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbarlineups)
         supportActionBar?.title = "LINEUPS"
 
         //Para el método showVideos.
@@ -123,12 +125,10 @@ class ActivityLineups : AppCompatActivity() {
 
         })
 
-
         // -----------------------------------------------------------
         // --------------------- NAVIGATION MENU ---------------------
         // -----------------------------------------------------------
-        // Asignar la Toolbar
-        setSupportActionBar(binding.toolbarlineups)
+
         //Asignar la navigationView
         navigationView = findViewById(R.id.nav_view_lineups)
         //Asignar el drawer
