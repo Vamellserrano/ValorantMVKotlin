@@ -16,6 +16,11 @@ class MapLineupViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
             binding.textViewMapLineupName.text = mapModel.displayName
 
+            if (mapModel.displayIcon == ""){
+                binding.lineupviewinit.visibility = View.GONE
+                binding.lineupviewinit.layoutParams = RecyclerView.LayoutParams(0,0)
+            }
+
             itemView.setOnClickListener {
                 onClickListener(mapModel)
             }

@@ -6,13 +6,25 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.valorantpruebaapi.R
+import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.databinding.ActivityMapsBinding
+import com.example.valorantpruebaapi.lineups.ActivityLineups
+import com.example.valorantpruebaapi.weapons.ActivityWeapons
+import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ActivityMaps : AppCompatActivity() {
+
+    private lateinit var drawerToggle: ActionBarDrawerToggle
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
 
     private var maps: List<Map> = emptyList()
     private lateinit var binding: ActivityMapsBinding
@@ -22,7 +34,9 @@ class ActivityMaps : AppCompatActivity() {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "MAPAS"
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbarmaps)
+        supportActionBar?.title = "MAPS"
 
         val valorantService = ValorantService.create()
 
@@ -58,6 +72,58 @@ class ActivityMaps : AppCompatActivity() {
             }
 
         })
+
+        // -----------------------------------------------------------
+        // --------------------- NAVIGATION MENU ---------------------
+        // -----------------------------------------------------------
+
+        //Asignar la navigationView
+        navigationView = findViewById(R.id.nav_view_maps)
+        //Asignar el drawer
+        drawerLayout = findViewById(R.id.drawermaps)
+
+        // Inicializar ActionBarDrawerToggle y asociarlo al DrawerLayout y la Toolbar
+        drawerToggle = ActionBarDrawerToggle(
+            this, drawerLayout, binding.toolbarmaps, R.string.opendrawer, R.string.closedrawer
+        )
+        drawerLayout.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        navigationView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.agents_nav -> {
+                    val agentsIntent =
+                        Intent(this@ActivityMaps, ActivityAgents::class.java)
+                    startActivity(agentsIntent)
+                    true
+                }
+                R.id.maps_nav -> {
+                    val mapsIntent =
+                        Intent(this@ActivityMaps, ActivityMaps::class.java)
+                    startActivity(mapsIntent)
+                    true
+                }
+                R.id.weapons_nav -> {
+                    val weaponsIntent =
+                        Intent(this@ActivityMaps, ActivityWeapons::class.java)
+                    startActivity(weaponsIntent)
+                    true
+                }
+                R.id.lineups_nav -> {
+                    val lineupsIntent2 =
+                        Intent(this@ActivityMaps, ActivityLineups::class.java)
+                    startActivity(lineupsIntent2)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun initRecyclerView() {
