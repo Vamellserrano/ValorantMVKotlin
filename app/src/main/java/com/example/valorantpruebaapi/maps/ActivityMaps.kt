@@ -34,6 +34,7 @@ class ActivityMaps : AppCompatActivity() {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         // Asignar la Toolbar
         setSupportActionBar(binding.toolbarmaps)
         supportActionBar?.title = "MAPS"
