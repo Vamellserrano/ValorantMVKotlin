@@ -1,0 +1,39 @@
+ //=======================================================================
+        // Write a message to the database
+
+        val agents = listOf("Astra", "Breach", "Brimstone", "Chamber", "Cypher", "Fade", "Gekko", "Harbor",
+        "Jett","KAY/O","Killjoy", "Neon", "Omen", "Phoenix", "Raze", "Reyna", "Sage", "Skye", "Sova",
+        "Viper", "Yoru")
+        val maps = listOf("Ascent", "Bind", "Breeze", "Fracture", "Heaven", "Icebox", "Lotus", "Pearl", "Split")
+
+        val database = FirebaseDatabase.getInstance()
+        val agentsRef = database.getReference("Agentes")
+
+        for (agent in agents){
+            for (map in maps){
+                val agentRef = agentsRef.child(agent)
+                agentRef.child("Map").child(map).setValue("URLXXXXXX")
+            }
+        }
+
+//        // Read from the database
+//        agentsRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                for (agentSnapshot in snapshot.children) {
+//                    val agentName = agentSnapshot.key
+//                    val mapsSnapshot = agentSnapshot.child("Mapas")
+//                    for (mapSnapshot in mapsSnapshot.children) {
+//                        val mapName = mapSnapshot.key
+//                        val url = mapSnapshot.getValue(String::class.java)
+//
+//                        Log.d("LALALA", "Agente: $agentName, Mapa: $mapName, URL: $url")
+//                    }
+//                }
+//            }
+//
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.w("LALALA", "Failed to read value.", error.toException())
+//            }
+//        })
+        //=======================================================================
