@@ -48,4 +48,6 @@
     <string name="mapview_from_maplist_recyclerview">MapView from MapList RecyclerView</string>
     <string name="agentimage">agentImage</string>
     <string name="agentportrait2">agentPortrait2</string>
+    <string name="register">REGISTER</string>
+    <string name="rangos">0-15m 15-30m 30-50m</string>
 </resources>
