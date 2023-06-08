@@ -5,11 +5,16 @@ import ClasesApi.Map
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.valorantpruebaapi.LoginActivity
+import com.example.valorantpruebaapi.MainScreen
 import com.example.valorantpruebaapi.R
 import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.agents.AgentAdapter
@@ -17,6 +22,7 @@ import com.example.valorantpruebaapi.databinding.ActivityLineupsBinding
 import com.example.valorantpruebaapi.maps.ActivityMaps
 import com.example.valorantpruebaapi.weapons.ActivityWeapons
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -24,6 +30,8 @@ import com.google.firebase.database.ValueEventListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+private lateinit var mAuth: FirebaseAuth
 
 private lateinit var drawerToggle: ActionBarDrawerToggle
 private lateinit var drawerLayout: DrawerLayout
@@ -133,6 +141,14 @@ class ActivityLineups : AppCompatActivity() {
         navigationView = findViewById(R.id.nav_view_lineups)
         //Asignar el drawer
         drawerLayout = findViewById(R.id.drawerLineups)
+        //Asignar el user
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val userEmail = user.email
+            binding.userWelcome.text = "Bienvenido/a \n$userEmail"
+        } else {
+            binding.userWelcome.isVisible = false
+        }
 
         // Inicializar ActionBarDrawerToggle y asociarlo al DrawerLayout y la Toolbar
         drawerToggle = ActionBarDrawerToggle(
@@ -141,8 +157,16 @@ class ActivityLineups : AppCompatActivity() {
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        val navMenu: Menu = navigationView.menu
+        navMenu.findItem(R.id.lineups_nav).isVisible = false
         navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.home_nav -> {
+                    val home =
+                        Intent(this@ActivityLineups, MainScreen::class.java)
+                    startActivity(home)
+                    true
+                }
                 R.id.agents_nav -> {
                     val agentsIntent =
                         Intent(this@ActivityLineups, ActivityAgents::class.java)
@@ -161,14 +185,21 @@ class ActivityLineups : AppCompatActivity() {
                     startActivity(weaponsIntent)
                     true
                 }
-                R.id.lineups_nav -> {
-                    val lineupsIntent2 =
-                        Intent(this@ActivityLineups, ActivityLineups::class.java)
-                    startActivity(lineupsIntent2)
-                    true
-                }
                 else -> false
             }
+        }
+
+        if (user != null) {
+            binding.btnLogoutMs.setOnClickListener {
+                mAuth = FirebaseAuth.getInstance()
+                mAuth.signOut()
+                Toast.makeText(this, "You've logged out.", Toast.LENGTH_SHORT).show()
+                val logout =
+                    Intent(this@ActivityLineups, LoginActivity::class.java)
+                startActivity(logout)
+            }
+        } else {
+            binding.btnLogoutMs.isVisible = false
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
