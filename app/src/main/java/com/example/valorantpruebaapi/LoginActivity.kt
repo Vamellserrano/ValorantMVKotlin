@@ -3,6 +3,7 @@ package com.example.valorantpruebaapi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.valorantpruebaapi.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +38,8 @@ class LoginActivity : AppCompatActivity() {
                             showAlertLoginError()
                         }
                     }
+                } else {
+                    showAlertLoginError()
                 }
             }
 
@@ -61,7 +64,6 @@ class LoginActivity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
-
     private fun showMain(email: String?, provider: ProviderType) {
         val mainIntent = Intent(this@LoginActivity, MainScreen::class.java).apply {
             putExtra("EMAIL", email)

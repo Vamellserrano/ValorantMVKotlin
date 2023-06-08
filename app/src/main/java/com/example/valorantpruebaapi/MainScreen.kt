@@ -1,10 +1,15 @@
 package com.example.valorantpruebaapi
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.databinding.ActivityMainScreenBinding
@@ -16,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class MainScreen : AppCompatActivity() {
+
+    private lateinit var mAuth: FirebaseAuth
 
     private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
@@ -46,12 +53,12 @@ class MainScreen : AppCompatActivity() {
         }
         //The "lineups" option can be only accessed by logging into the application.
         binding.buttonLineups.setOnClickListener {
-            //if (FirebaseAuth.getInstance().currentUser != null) {
+            if (FirebaseAuth.getInstance().currentUser != null) {
                 val intent = Intent(this@MainScreen, ActivityLineups::class.java)
                 startActivity(intent)
-            //} else {
-                //showAlertError()
-           // }
+            } else {
+                showAlertError()
+            }
         }
 
         // -----------------------------------------------------------
@@ -63,6 +70,15 @@ class MainScreen : AppCompatActivity() {
         navigationView = findViewById(R.id.nav_view)
         //Asignar el drawer
         drawerLayout = findViewById(R.id.drawermainscreen)
+        //Asignar el user
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val userEmail = user.email
+            binding.userWelcome.text = "Bienvenido/a \n$userEmail"
+        } else {
+            binding.userWelcome.isVisible = false
+        }
+
 
         // Inicializar ActionBarDrawerToggle y asociarlo al DrawerLayout y la Toolbar
         drawerToggle = ActionBarDrawerToggle(
@@ -71,6 +87,8 @@ class MainScreen : AppCompatActivity() {
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        val navMenu: Menu = navigationView.menu
+        navMenu.findItem(R.id.home_nav).isVisible = false
         navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.agents_nav -> {
@@ -100,31 +118,37 @@ class MainScreen : AppCompatActivity() {
                 else -> false
             }
         }
+
+        if (user != null) {
+            binding.btnLogoutMs.setOnClickListener {
+                mAuth = FirebaseAuth.getInstance()
+                mAuth.signOut()
+                Toast.makeText(this, "You've logged out.", Toast.LENGTH_SHORT).show()
+                val logout =
+                    Intent(this@MainScreen, LoginActivity::class.java)
+                startActivity(logout)
+            }
+        } else {
+            binding.btnLogoutMs.isVisible = false
+        }
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
     }
 
+    private fun showAlertError() { //
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("ERROR")
+        builder.setMessage("A esta opción solo se puede acceder si has iniciado sesión antes. \t¿Quieres iniciar sesión ahora?")
+        builder.setPositiveButton("Aceptar"){ _, _ ->
+            val intent = Intent(this@MainScreen, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        builder.setNegativeButton("Cancelar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
 }
-
-//@Deprecated("Deprecated in Java")
-//override fun onBackPressed() {
-//    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//        drawerLayout.closeDrawer(GravityCompat.START)
-//    } else {
-//        super.onBackPressed()
-//    }
-//}
-
-//MÉTODO PARA MOSTRAR ALERTAS EN CASO DE ERROR EN EL REGISTRO
-//    private fun showAlertError() { //
-//        val builder = AlertDialog.Builder(this)
-//        builder.setTitle("ERROR")
-//        builder.setMessage("A esta opción solo se puede acceder si has iniciado sesión antes.")
-//        builder.setPositiveButton("Aceptar", null)
-//        val dialog: AlertDialog = builder.create()
-//        dialog.show()
-//    }
