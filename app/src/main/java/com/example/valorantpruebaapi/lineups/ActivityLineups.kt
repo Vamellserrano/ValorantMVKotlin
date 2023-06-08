@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.valorantpruebaapi.LoginActivity
 import com.example.valorantpruebaapi.MainScreen
 import com.example.valorantpruebaapi.R
