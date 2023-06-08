@@ -2,17 +2,17 @@
         // Write a message to the database
 
         val agents = listOf("Astra", "Breach", "Brimstone", "Chamber", "Cypher", "Fade", "Gekko", "Harbor",
-        "Jett","KAY/O","Killjoy", "Neon", "Omen", "Phoenix", "Raze", "Reyna", "Sage", "Skye", "Sova",
-        "Viper", "Yoru")
-        val maps = listOf("Ascent", "Bind", "Breeze", "Fracture", "Heaven", "Icebox", "Lotus", "Pearl", "Split")
+            "Jett","KAY","Killjoy", "Neon", "Omen", "Phoenix", "Raze", "Reyna", "Sage", "Skye", "Sova",
+            "Viper", "Yoru")
+        val maps = listOf("Ascent", "Bind", "Breeze", "Fracture", "Haven", "Icebox", "Lotus", "Pearl", "Split")
 
         val database = FirebaseDatabase.getInstance()
-        val agentsRef = database.getReference("Agentes")
+        val agentsRef = database.getReference("Agents")
 
         for (agent in agents){
             for (map in maps){
                 val agentRef = agentsRef.child(agent)
-                agentRef.child("Map").child(map).setValue("URLXXXXXX")
+                agentRef.child("Map").child(map).setValue("https://www.youtube.com/embed/e8RHtXtpHEI")
             }
         }
 
@@ -21,7 +21,7 @@
 //            override fun onDataChange(snapshot: DataSnapshot) {
 //                for (agentSnapshot in snapshot.children) {
 //                    val agentName = agentSnapshot.key
-//                    val mapsSnapshot = agentSnapshot.child("Mapas")
+//                    val mapsSnapshot = agentSnapshot.child("Maps")
 //                    for (mapSnapshot in mapsSnapshot.children) {
 //                        val mapName = mapSnapshot.key
 //                        val url = mapSnapshot.getValue(String::class.java)

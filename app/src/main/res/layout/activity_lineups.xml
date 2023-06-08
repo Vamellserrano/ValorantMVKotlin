@@ -45,10 +45,13 @@
             android:id="@+id/recyclerViewAgentsLineups"
             android:layout_width="370dp"
             android:layout_height="130dp"
-            android:layout_marginBottom="10dp"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:background="@drawable/box_recycler"/>
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/box_recycler"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="3dp"
+            />
 
         <TextView
             android:id="@+id/textView4"
@@ -88,6 +91,17 @@
                 android:layout_marginStart="20sp"
                 android:layout_marginTop="10dp"
                 android:text="@string/lineup"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textViewLineupsAgentMap"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/choose_your_agent"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
 

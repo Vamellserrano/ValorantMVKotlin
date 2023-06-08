@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -177,16 +178,20 @@ class ActivityWeapons : AppCompatActivity() {
             var body = ""
             var legs = ""
             for (range in damageRange!!){
-                ranges += range.rangeStartMeters.toInt().toString() + " - " + range.rangeEndMeters.toInt().toString() +"m".padEnd(8, ' ')
-                head += range.headDamage.toInt().toString().padEnd(18, ' ')
-                body += range.bodyDamage.toInt().toString().padEnd(18, ' ')
-                legs += range.legDamage.toInt().toString().padEnd(18, ' ')
+                ranges += range.rangeStartMeters.toInt().toString() + " - " + range.rangeEndMeters.toInt().toString() +"m".padEnd(5, ' ')
+                head += range.headDamage.toInt().toString().padEnd(15, ' ')
+                body += range.bodyDamage.toInt().toString().padEnd(15, ' ')
+                legs += range.legDamage.toInt().toString().padEnd(15, ' ')
             }
             popupView.findViewById<TextView>(R.id.textViewRanges).text = ranges
             popupView.findViewById<TextView>(R.id.textViewDamageHead).text = head
             popupView.findViewById<TextView>(R.id.textViewDamageBody).text = body
             popupView.findViewById<TextView>(R.id.textViewDamageLegs).text = legs
 
+            val btnClose = popupView.findViewById<Button>(R.id.buttonClose)
+            btnClose.setOnClickListener {
+                popupWindow.dismiss()
+            }
 
             popupWindow = PopupWindow(popupView, 800,  600)
 
@@ -197,6 +202,12 @@ class ActivityWeapons : AppCompatActivity() {
 
             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
 
+        }
+    }
+    override fun onPause() {
+        super.onPause()
+        if (popupWindow.isShowing) {
+            popupWindow.dismiss()
         }
     }
 }

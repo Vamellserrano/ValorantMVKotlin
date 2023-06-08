@@ -63,6 +63,7 @@ class ActivityAgentUnit : AppCompatActivity() {
             binding.textViewRolAgent.text = agent.role.displayName
             binding.textViewAbilitiesDescription.text = agent.abilities.get(0)?.description
             binding.textViewDescriptionAgent.text = agent.description
+            binding.ImageViewAbility1.setBackgroundResource(R.drawable.box_recyclerunit_selected)
 
             Glide.with(binding.ImageViewAbility1.context)
                 .load(agent.abilities[0].displayIcon)
@@ -91,18 +92,44 @@ class ActivityAgentUnit : AppCompatActivity() {
 
             binding.ImageViewAbility1.setOnClickListener {
                 binding.textViewAbilitiesDescription.text = agent.abilities[0].description
+                binding.ImageViewAbility1.setBackgroundResource(R.drawable.box_recyclerunit_selected)
+                binding.ImageViewAbility2.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility3.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility4.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.imageViewPasive.setBackgroundResource(R.drawable.box_recyclerunit)
             }
             binding.ImageViewAbility2.setOnClickListener {
                 binding.textViewAbilitiesDescription.text = agent.abilities[1].description
+                binding.ImageViewAbility1.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility2.setBackgroundResource(R.drawable.box_recyclerunit_selected)
+                binding.ImageViewAbility3.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility4.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.imageViewPasive.setBackgroundResource(R.drawable.box_recyclerunit)
             }
             binding.ImageViewAbility3.setOnClickListener {
                 binding.textViewAbilitiesDescription.text = agent.abilities[2].description
+                binding.ImageViewAbility1.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility2.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility3.setBackgroundResource(R.drawable.box_recyclerunit_selected)
+                binding.ImageViewAbility4.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.imageViewPasive.setBackgroundResource(R.drawable.box_recyclerunit)
             }
             binding.ImageViewAbility4.setOnClickListener {
                 binding.textViewAbilitiesDescription.text = agent.abilities[3].description
+                binding.ImageViewAbility1.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility2.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility3.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility4.setBackgroundResource(R.drawable.box_recyclerunit_selected)
+                binding.imageViewPasive.setBackgroundResource(R.drawable.box_recyclerunit)
             }
             binding.imageViewPasive.setOnClickListener {
                 binding.textViewAbilitiesDescription.text = agent.abilities[4].description
+                binding.textViewAbilitiesDescription.text = agent.abilities[3].description
+                binding.ImageViewAbility1.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility2.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility3.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.ImageViewAbility4.setBackgroundResource(R.drawable.box_recyclerunit)
+                binding.imageViewPasive.setBackgroundResource(R.drawable.box_recyclerunit_selected)
             }
 
         }

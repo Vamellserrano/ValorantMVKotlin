@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.valorantpruebaapi.R
 import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.agents.AgentAdapter
@@ -180,6 +181,8 @@ class ActivityLineups : AppCompatActivity() {
 
     private fun showVideoLineup() {
         // Read from database
+        binding.textViewLineupsAgentMap.text= "$displayNameAgent - $displayNameMap"
+
         val database = FirebaseDatabase.getInstance()
         val agentsRef = database.getReference("Agents")
 
@@ -214,7 +217,7 @@ class ActivityLineups : AppCompatActivity() {
         val agentsManager = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
         binding.recyclerViewAgentsLineups.layoutManager = agentsManager
         binding.recyclerViewAgentsLineups.adapter =
-            AgentAdapter(agents) { agent -> onItemSelected(agent) }
+            AgentAdapter(agents) { agent -> onItemSelected(agent)}
 
         val mapsManager = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
         binding.recyclerViewMapsLineups.layoutManager = mapsManager
@@ -224,6 +227,19 @@ class ActivityLineups : AppCompatActivity() {
 
     fun onItemSelected(agent: Agent) {
         displayNameAgent = agent.displayName
+        //aqui cambiar el fondo del item.xml
+        val itemView = binding.recyclerViewAgentsLineups.getChildAt(2)
+        itemView.setBackgroundResource(R.drawable.box_recyclerunit_selected)
+
+//        val recyclerView = binding.recyclerViewAgentsLineups
+//        val selectedPosition = recyclerView.getChildAdapterPosition(recyclerView.findViewWithTag<View>())
+//        val viewHolder = recyclerView.findViewHolderForAdapterPosition(selectedPosition)
+//        viewHolder?.itemView?.setBackgroundResource(R.drawable.box_recyclerunit_selected)
+
+
+
+        if (displayNameAgent == "KAY/O")
+            displayNameAgent = "KAY"
         showVideoLineup()
     }
 
