@@ -96,9 +96,9 @@
 
             <TextView
                 android:id="@+id/textViewLineupsAgentMap"
-                android:layout_width="200sp"
+                android:layout_width="300sp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100sp"
+                android:layout_marginStart="60sp"
                 android:layout_marginTop="10dp"
                 android:text="@string/choose_your_agent"
                 android:textAlignment="textEnd"
