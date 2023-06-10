@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="@string/welcome_to_valori"
+            android:text="welcome to \nvalorant lineups tool"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -132,7 +132,7 @@
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="100dp"
             android:layout_marginLeft="160dp"
             app:srcCompat="@drawable/valorant_logo"
             android:contentDescription="@string/logo_del_valorant"/>

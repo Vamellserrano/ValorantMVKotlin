@@ -268,9 +268,8 @@ class ActivityLineups : AppCompatActivity() {
     fun onItemSelected(agent: Agent) {
         displayNameAgent = agent.displayName
         //aqui cambiar el fondo del item.xml
-        val itemView = binding.recyclerViewAgentsLineups.getChildAt(2)
-        itemView.setBackgroundResource(R.drawable.box_recyclerunit_selected)
-
+//        val itemView = binding.recyclerViewAgentsLineups.getChildAt(2)
+//        itemView.setBackgroundResource(R.drawable.box_recyclerunit_selected)
 //        val recyclerView = binding.recyclerViewAgentsLineups
 //        val selectedPosition = recyclerView.getChildAdapterPosition(recyclerView.findViewWithTag<View>())
 //        val viewHolder = recyclerView.findViewHolderForAdapterPosition(selectedPosition)

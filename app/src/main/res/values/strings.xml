@@ -50,4 +50,5 @@
     <string name="agentportrait2">agentPortrait2</string>
     <string name="register">REGISTER</string>
     <string name="rangos">0-15m 15-30m 30-50m</string>
+    <string name="valorant_lineups_tool">Valorant Lineups Tool</string>
 </resources>
