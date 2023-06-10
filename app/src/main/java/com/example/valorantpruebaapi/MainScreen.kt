@@ -1,6 +1,5 @@
 package com.example.valorantpruebaapi
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -16,14 +15,13 @@ import com.example.valorantpruebaapi.databinding.ActivityMainScreenBinding
 import com.example.valorantpruebaapi.lineups.ActivityLineups
 import com.example.valorantpruebaapi.maps.ActivityMaps
 import com.example.valorantpruebaapi.weapons.ActivityWeapons
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-
 
 class MainScreen : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
-
     private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
@@ -33,6 +31,9 @@ class MainScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // Asignar la Toolbar
+        setSupportActionBar(binding.toolbarms)
+        supportActionBar?.title = "MENU"
 
 
         // ---------------------------------------------------
@@ -64,17 +65,19 @@ class MainScreen : AppCompatActivity() {
         // -----------------------------------------------------------
         // --------------------- NAVIGATION MENU ---------------------
         // -----------------------------------------------------------
-        // Asignar la Toolbar
-        setSupportActionBar(binding.toolbarms)
+
         //Asignar la navigationView
         navigationView = findViewById(R.id.nav_view)
         //Asignar el drawer
         drawerLayout = findViewById(R.id.drawermainscreen)
         //Asignar el user
         val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            val userEmail = user.email
+        val guser = GoogleSignIn.getLastSignedInAccount(applicationContext)
+        if (user != null || guser != null) {
+            val userEmail = user?.email
+            val guserEmail = guser?.email
             binding.userWelcome.text = "Bienvenido/a \n$userEmail"
+            binding.userWelcome.text = "Bienvenido/a \n$guserEmail"
         } else {
             binding.userWelcome.isVisible = false
         }
@@ -119,7 +122,8 @@ class MainScreen : AppCompatActivity() {
             }
         }
 
-        if (user != null) {
+        if (user != null || guser != null) {
+            binding.btnLogoutMs.text = "LOGOUT"
             binding.btnLogoutMs.setOnClickListener {
                 mAuth = FirebaseAuth.getInstance()
                 mAuth.signOut()
@@ -129,7 +133,12 @@ class MainScreen : AppCompatActivity() {
                 startActivity(logout)
             }
         } else {
-            binding.btnLogoutMs.isVisible = false
+            binding.btnLogoutMs.text = "LOGIN"
+            binding.btnLogoutMs.setOnClickListener {
+                val login =
+                    Intent(this@MainScreen, LoginActivity::class.java)
+                startActivity(login)
+            }
         }
     }
         override fun onOptionsItemSelected(item: MenuItem): Boolean {

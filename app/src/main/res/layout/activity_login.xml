@@ -95,8 +95,7 @@
                 android:layout_marginRight="5dp"
                 android:backgroundTint="@color/white"
                 android:text="@string/sign_in"
-                android:textColor="@color/black"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/button_signingoogle"
@@ -107,6 +106,7 @@
                 android:text="@string/sign_in_with"
                 android:textColor="@color/black"
                 style="?android:attr/buttonBarButtonStyle" />
+
         </LinearLayout>
 
         <Button

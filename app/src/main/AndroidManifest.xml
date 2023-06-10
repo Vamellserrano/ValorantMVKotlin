@@ -16,31 +16,36 @@
         tools:targetApi="31">
         <activity
             android:name=".lineups.ActivityLineups"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainScreen"/>
         <activity
             android:name=".maps.ActivityMapUnit"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".maps.ActivityMaps"/>
         <activity
             android:name=".maps.ActivityMaps"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainScreen"/>
         <activity
             android:name=".weapons.ActivityWeapons"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainScreen"/>
         <activity
             android:name=".RegisterScreen"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name=".MainScreen"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name=".agents.ActivityAgentUnit"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".agents.ActivityAgents"/>
         <activity
             android:name=".agents.ActivityAgents"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainScreen"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -51,5 +56,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

@@ -16,6 +16,7 @@ import com.example.valorantpruebaapi.agents.ActivityAgents
 import com.example.valorantpruebaapi.databinding.ActivityMapUnitBinding
 import com.example.valorantpruebaapi.lineups.ActivityLineups
 import com.example.valorantpruebaapi.weapons.ActivityWeapons
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -61,9 +62,12 @@ class ActivityMapUnit : AppCompatActivity() {
     drawerLayout = findViewById(R.id.drawermap)
         //Asignar el user
         val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            val userEmail = user.email
+        val guser = GoogleSignIn.getLastSignedInAccount(applicationContext)
+        if (user != null || guser != null) {
+            val userEmail = user?.email
+            val guserEmail = guser?.email
             binding.userWelcome.text = "Bienvenido/a \n$userEmail"
+            binding.userWelcome.text = "Bienvenido/a \n$guserEmail"
         } else {
             binding.userWelcome.isVisible = false
         }
@@ -111,6 +115,7 @@ class ActivityMapUnit : AppCompatActivity() {
         }
     }
         if (user != null) {
+            binding.btnLogoutMs.text = "LOGOUT"
             binding.btnLogoutMs.setOnClickListener {
                 mAuth = FirebaseAuth.getInstance()
                 mAuth.signOut()
@@ -120,7 +125,12 @@ class ActivityMapUnit : AppCompatActivity() {
                 startActivity(logout)
             }
         } else {
-            binding.btnLogoutMs.isVisible = false
+            binding.btnLogoutMs.text = "LOGIN"
+            binding.btnLogoutMs.setOnClickListener {
+                val login =
+                    Intent(this@ActivityMapUnit, LoginActivity::class.java)
+                startActivity(login)
+            }
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
